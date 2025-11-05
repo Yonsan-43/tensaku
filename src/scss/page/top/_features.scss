@@ -1,0 +1,119 @@
+@use "../../global/index" as *;
+
+
+.top-features {
+    padding-block-start: rm(30);
+    background: $color-bg-main;
+}
+
+
+.top-features__wrap {
+    margin-block-start: rm(98);
+    display: flex;
+    flex-direction: column;
+    @include mq(sp) {
+      align-items: center;
+    }
+}
+
+.top-features__contents {
+    display: flex;
+    counter-increment: item-counter;
+    margin-block-end: rm(121);
+    @include mq(sp) {
+      flex-direction: column;
+      align-items: center;
+      width: min(rm(400),92vw);
+      margin-block-end: rm(80);
+      gap: rm(30);
+    }
+    &:nth-of-type(2n){
+        flex-direction: row-reverse;
+        align-self: start;
+        @include mq(sp) {
+          flex-direction: column;
+          align-self: center;
+        }
+    }
+    &:nth-of-type(2n+1){
+        margin-inline-start: rm(20);
+        @include mq(sp) {
+          margin-inline-start: 0;
+        }
+    }
+}
+
+.top-features__img {
+    width: rm(544);
+    height: rm(306);
+    aspect-ratio: 544/306;
+    position: relative;
+    @include mq(sp) {
+        width: 80vw;
+        height: auto;
+    }
+    img{
+        object-fit: cover;
+        width: 100%;
+        position: absolute;
+    }
+
+}
+
+
+.top-features__contents__body {
+    width: rm(373);
+    min-height: rm(186);
+    padding-block-end: rm(21);
+    align-self: end;
+    position: relative;
+    z-index: $z-fv;
+    margin-inline-start: rm(57);
+    margin-inline-end: rm(20);
+    @include mq(sp) {
+      margin-inline: auto;
+      width: 100%;
+    }
+    &::after{
+        content: '0'counter(item-counter);
+        position: absolute;
+        color: $color-feature-num;
+        font-weight: bold;
+        font-size: rm(96);
+        top: rm(-82);
+        left: rm(-57);
+        z-index: $z-negative-1;
+        @include mq(sp) {
+          font-size: rm(64);
+          top: rm(-52);
+          left: rm(-25);
+        }
+    }
+}
+
+.top-features__contents__title {
+    font-weight: bold;
+    line-height: 1.5;
+    font-size: rm(28);
+    margin-block-end: rm(30);
+    @include mq(sp) {
+      font-size: rm(22);
+      margin-block-end: rm(20);
+      margin-inline-start: rm(15);
+        span{
+            display: inline-block;
+        }
+    }
+    @include mq(sp-sm) {
+        margin-inline-start: 10vw;
+    }
+}
+
+.top-features__contents__text {
+    line-height: 1.5;
+    font-size: rm(16);
+    @include mq(sp-sm) {
+      font-size: rm(14);
+    }
+}
+

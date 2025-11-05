@@ -1,0 +1,58 @@
+//_variables.scss
+$ff: 'Noto Sans JP', sans-serif; // bodyに指定するフォント
+$ff-jp: 'Noto Sans JP', sans-serif; //日本語onlyのフォント
+$ff-en: "Roboto Condensed", sans-serif;//英語onlyのフォント
+$ff-logo: "Orbitron", sans-serif;//英語onlyのフォント
+
+
+//===========================================
+//   レイアウト (単位は不要)
+//===========================================
+$pc-inner: 1024;  // pc版inner幅
+$pc-sidePadding: 128; //pc版サイドのpadding
+$pc-inner-sum: calc($pc-inner + $pc-sidePadding * 2);
+$pc-narrow-inner: 800; //狭いinner幅
+$pc-narrow-inner-sum: calc($pc-narrow-inner + $pc-sidePadding * 2);
+$breakpoint: 768; // ブレイクポイント (pc版カンプとsp版カンプの境界)
+$sp-sidePadding: 20; //sp版サイドのpadding
+$pc-camp: 1280; // pc版のカンプサイズを入力
+$sp-camp: 375; // sp版のカンプサイズを入力
+$sp-inner: 335;
+$sp-inner-sum: calc($sp-inner + $sp-sidePadding * 2);
+
+$sm-breakpoint: 500; // small版ブレイクポイント
+
+
+//z-index
+$z-header: 100;
+$z-popupIcon: 102;
+$z-popup: 101;
+$z-fv: 10;
+$z-underline: 1;
+$z-negative-1: -1;
+//===========================================
+//   カラー
+//===========================================
+$color-text-main: #333333; // テキストカラー
+$color-text-sub: #00331D; // テキストカラー
+$color-text-gray: #999999; // テキストカラー
+$color-text-step: #BBBBBB; // テキストカラー
+$color-main: #075735; //一番よく使われるカラー
+$color-secondary: #00BA6B; //二番目によく使われるカラー
+$color-bg-main: #F7FFFC; //背景色1
+$color-bg-sub: #E6F8F1; //背景色2
+$color-bg-gray: #F1F1F1; //背景色3
+$color-accent: #FF8A00; //この辺は自由に設定
+$color-hover: #25E662;
+$color-flow-100: #DAFFF1;
+$color-flow-200: #A4FAD8;
+$color-flow-300: #76F6C5;
+$color-flow-400: #3AEFA2;
+$color-feature-num: #CBF7E6;
+$color-border-gray: #D9D9D9;
+$color-voices-icon: #F5F0C5;
+$white: #ffffff;
+$black: #000000;
+$red: #FF0000;
+$color-form:#BCBCBC;
+$color-policy:#023E78;

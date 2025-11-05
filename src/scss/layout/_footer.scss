@@ -1,0 +1,79 @@
+@use "../global/index" as *;
+
+.l-footer {
+    width: 100%;
+    min-height: rm(254);
+    padding-block-start: rm(68);
+    padding-block-end: rm(77);
+    background-color: $color-bg-gray;
+}
+
+.l-footer__inner {
+    width: min(rm(1080), 100%);
+    margin-inline: auto;
+    padding-inline: rm(20);
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: rm(65);
+    @include mq(sp) {
+        grid-template-columns: auto;
+    }
+}
+
+.l-footer__logo {
+    display: flex;
+    flex-direction: column;
+    gap: rm(24);
+    @include mq(sp) {
+      justify-content: center;
+      align-items: center;
+    }
+}
+
+.l-footer__logo__text {
+    font-family: $ff-logo;
+    font-weight: bold;
+    color: $color-main;
+    font-size: rm(32);
+    line-height: 1;
+    @include mq(sp) {
+      font-size: rm(24);
+    }
+}
+
+.l-footer__logo__copyright {
+    font-size: rm(12);
+}
+
+.l-footer__list {
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: rm(34);
+    column-gap: rm(36);
+    height: fit-content;
+    @include mq(sp) {
+      justify-content: center;
+    }
+}
+
+.l-footer__item {
+    font-size: rm(16);
+    font-weight: bold;
+    line-height: 1;
+    transition: opacity .3s ease;
+    @media (any-hover: hover) {
+        &:hover{
+            opacity: .5;
+        }
+    }
+}
+
+.l-footer__button {
+    display: flex;
+    flex-direction: column;
+    gap: rm(19);
+    @include mq(sp) {
+        align-items: center;
+    }
+}
+

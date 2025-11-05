@@ -1,0 +1,112 @@
+@use "../../global/index" as *;
+
+.p-popup {
+    width: px(300);
+    height: auto;
+    aspect-ratio: 300/216;
+    padding: 0;
+    background: linear-gradient(135deg,$color-secondary,$color-main);
+    border: solid px(4) $white;
+    box-shadow: 0 px(4) px(4) 0 rgba(0, 0, 0, 0.25);
+    position: fixed;
+    left: px(20);
+    bottom: px(20);
+    display: grid;
+    grid-template-columns: px(113) 1fr;
+    column-gap: px(16);
+    z-index: $z-popup;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .5s ease, translate .5s ease;
+    @include mq(sp) {
+        aspect-ratio: 300/216;
+        width: px(200);
+        height: auto;
+        column-gap: px(5);
+        grid-template-columns: auto auto;
+        padding-inline-end: px(5);
+
+    }
+    &::backdrop{
+        background-color: transparent;
+    }
+}
+
+.p-popup.show {
+    transition: opacity .5s ease, translate .5s ease;
+    visibility: visible;
+    display: grid;
+    opacity: 1;
+    translate: px(10) px(-10);
+}
+
+.p-popup__img-1, .p-popup__img-2{
+    width: px(113);
+    height: px(64);
+    @include mq(sp) {
+      width: calc((113/300) * px(200));
+      height: auto;
+    }
+    img{
+        width: 100%;
+        height: 100%;
+        aspect-ratio: 113/64;
+        object-fit: contain;
+
+    }
+}
+
+.p-popup__close-button {
+    position: absolute;
+    right: px(-14);
+    top: px(-15);
+}
+
+
+.p-popup__text {
+    color: $white;
+    margin-block-start: px(20);
+    font-weight: bold;
+    font-size: px(16);
+    @include mq(sp) {
+        margin-block-start: px(5);
+        font-size: px(11);
+        align-self: center;
+    }
+}
+
+.c-button-popup {
+    display: grid;
+    place-items: center;
+    justify-self: center;
+    grid-row: 3/4;
+    grid-column: 1/3;
+    z-index: $z-popupIcon;
+    width: px(266);
+    height: auto;
+    aspect-ratio: 266/46;
+    border: solid px(2) $color-text-main;
+    border-radius: px(25);
+    color: $color-text-main;
+    line-height: 1.5;
+    font-weight: bold;
+    background: $white;
+    transition: opacity .3s ease;
+    font-size: px(16);
+    @include mq(sp) {
+        width: px(170);
+        height: px(30);
+        font-size: px(10);
+    }
+    @media (any-hover: hover) {
+        &:hover{
+            opacity: .6;
+        }
+    }
+    a{
+        width: 100%;
+        height: 100%;
+    }
+}
+
+

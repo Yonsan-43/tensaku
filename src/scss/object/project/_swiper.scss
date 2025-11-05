@@ -1,0 +1,138 @@
+@use "../../global/index" as *;
+
+// fv
+
+.top-fv__swiper-container {
+    // overflow: hidden;
+    margin-block-start: rm(42);
+    @include mq(sp) {
+      margin-block-start: rm(80);
+    }
+}
+
+.top-fv__swiper {
+}
+
+.top-fv__swiper-wrapper {
+    transition-timing-function:linear;
+}
+
+.top-fv__swiper-slide {
+    width: rm(324) !important;
+    height: auto;
+    aspect-ratio: 324/184;
+}
+
+.top-fv__swiper__img {
+    width: rm(324);
+    height: auto;
+    aspect-ratio: 324/184;
+    img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+// voices
+
+.top-voices__swiper-container,
+.top-voices__swiper,
+.top-voices__swiper-wrapper,
+.top-voices__swiper-slide {
+  position: relative;
+}
+.top-voices__swiper-container {
+    width: 100%;
+}
+.top-voices__swiper {
+
+}
+.top-voices__swiper-wrapper {
+}
+.top-voices__swiper-slide {
+    // display: flex;
+    // justify-content: center;
+    // align-items: center;
+    width: rm(262) !important;
+    height: auto;
+    aspect-ratio: 267/377;
+
+}
+
+//位置のreset
+.swiper-button-prev,
+.swiper-button-next,
+.swiper-pagination-bullets.swiper-pagination-horizontal  {
+  top: unset;
+  bottom: unset;
+  left: unset;
+  right: unset;
+  margin: 0;
+  padding: 0;
+}
+// =============================
+// ナビゲーションボタン
+// =============================
+//デフォルトのボタンを初期化
+.swiper-button-prev::after,
+.swiper-button-next::after {
+  content: ""; //デフォルトのものを初期化
+}
+//各ボタンのカスタマイズ
+.swiper-button-prev,
+.swiper-button-next {
+    // top: 50px;
+    // translate: 0 -50%;
+    width: rm(44);
+    height: auto;
+    aspect-ratio: 1;
+    transition: all .3s ease;
+    @media (any-hover: hover) {
+        &:hover{
+            opacity: .5;
+        }
+    }
+    @include mq(sp-sm) {
+        width: rm(34);
+    }
+    img{
+        width: 100%;
+        height: 100%;
+    }
+}
+.swiper-button-prev {
+    left: rm(-37) !important;
+    @include mq(sp-sm) {
+        left: rm(-20) !important;
+    }
+}
+.swiper-button-next {
+    right: rm(-37) !important;
+    @include mq(sp) {
+      right: rm(-20) !important;
+    }
+}
+
+// =============================
+// ページネーション (bullets)
+// =============================
+//位置の設定 (枠組み)
+.swiper-pagination-bullets.swiper-pagination-horizontal {
+    top: calc(100% + rm(40));
+}
+//それぞれのページネーション
+.swiper-pagination-bullets.swiper-pagination-horizontal .swiper-pagination-bullet {
+  opacity: .2;
+  width: rm(8);
+  height: auto;
+  aspect-ratio: 1;
+  background: $color-text-sub;
+  margin-inline: calc(rm(16)/2);
+}
+//activeな部分
+.swiper-pagination-bullets.swiper-pagination-horizontal .swiper-pagination-bullet-active {
+    opacity: 1;
+    background: $color-text-sub;
+}
+

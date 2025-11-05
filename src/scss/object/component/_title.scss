@@ -1,0 +1,46 @@
+@use "../../global/index" as *;
+
+
+.c-title {
+    text-align: center;
+}
+
+.c-title__en {
+    font-family: $ff-en;
+    margin-bottom: rm(9);
+    font-weight: bold;
+    font-size: rm(15);
+    line-height: 1;
+    color: $color-text-sub;
+    text-transform: uppercase;
+    @include mq(sp) {
+      font-size: rm(12);
+    }
+}
+
+.c-title__ja {
+    font-weight: bold;
+    font-size: rm(36);
+    color: $color-text-main;
+    text-align: center;
+    position: relative;
+    line-height: 1;
+    text-transform: uppercase;
+    @include mq(sp) {
+      font-size: rm(24);
+    }
+    &::after{
+        content: "";
+        position: absolute;
+        left: 50%;
+        top: calc(100% + rm(17));
+        translate: -50%;
+        width: rm(70);
+        height: rm(2);
+        background: $color-text-sub;
+        @include mq(sp) {
+          width: rm(50);
+        }
+    }
+}
+

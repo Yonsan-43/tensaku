@@ -1,0 +1,47 @@
+@use "../global/index" as *;
+
+
+.terms {
+    background: $color-bg-main;
+}
+
+.terms__inner{
+    padding-inline: rm(20);
+    padding-block-start: rm(90);
+    padding-block-end: rm(97);
+    display: grid;
+    gap: rm(38);
+    &:not(:first-of-type){
+    }
+}
+
+.terms__text {
+    color: $color-text-main;
+    @include font(16,null,24,null);
+    margin-block-end: rm(20);
+}
+
+.terms__article {
+    display: grid;
+    gap: rm(39);
+}
+
+.terms__article__title {
+    color: $color-text-main;
+    @include font(24,bold,36,null);
+}
+
+.terms__article__text span{
+    color: $color-text-main;
+    @include font(16,null,24,null);
+    counter-increment: item-counter;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    column-gap: rm(5);
+    padding-inline-start: rm(5);
+    &::before{
+        content:counter(item-counter)". ";
+        display: inline-block;
+    }
+}
+

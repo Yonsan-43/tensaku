@@ -1,0 +1,13 @@
+@use "../../global/index" as *;
+
+.u-padding-l-none{
+    @include mq(sp-sm-min) {
+      padding-inline-start: 0 !important;
+    }
+}
+
+.u-padding-r-none{
+    @include mq(sp-sm-min) {
+      padding-inline-end: 0 !important;
+    }
+}

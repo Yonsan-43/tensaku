@@ -1,0 +1,10 @@
+@use "../global/index" as *;
+
+.l-inner{
+    width: min(rm(1024),calc(1024 / 1280 * 100vw));
+    margin-inline: auto;
+    @include mq(sp) {
+        width: 100%;
+        padding-inline: rm(15);
+    }
+}

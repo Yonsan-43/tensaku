@@ -1,0 +1,101 @@
+@use "../../global/index" as *;
+
+.c-icon {
+    width: rm(40);
+    height: rm(40);
+    transition: all .3s ease-in-out;
+    margin-inline-start: auto;
+    padding-block: rm(15);
+    @include mq(pc) {
+      display: none;
+    }
+}
+
+.c-icon__line {
+    display: block;
+    position: relative;
+    left: 50%;
+    top: 0;
+    translate: -50%;
+    width: rm(28);
+    height: rm(2);
+    background: $white;
+    -webkit-transition: inherit;
+    transition: inherit;
+}
+
+.c-icon__line::before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: inherit;
+    -webkit-transition: inherit;
+    transition: inherit;
+    top: rm(-10);
+  }
+
+
+.c-icon__text {
+    display: block;
+    color: $white;
+    font-size: rm(10);
+    line-height: 1;
+    margin-block-start: rm(7);
+}
+
+.c-icon[aria-expanded="true"] .c-icon__text{
+    display: none;
+}
+.c-icon[aria-expanded="true"] .c-icon__line{
+    -webkit-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    transform-origin: center;
+    width: rm(29.41);
+    top: rm(-5);
+}
+.c-icon[aria-expanded="true"] .c-icon__line::before{
+    -webkit-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    top: 0;
+}
+
+.c-icon-faq{
+        width: rm(30);
+        height: rm(30);
+        border-radius: 50%;
+        border: solid rm(3.75) $white;
+        position: relative;
+        &::before, &::after{
+            content: "";
+            position: absolute;
+            background-color: $white;
+            transition: transform .3s ease;
+            border-radius: 1px;
+        }
+        &::before{
+            width: rm(3.75);
+            height: rm(13.42);
+            top: 50%;
+            left: 50%;
+            translate: -50% -50%;
+            transform-origin: center;
+            transition: all .3s ease;
+        }
+        &::after{
+            width: rm(13.42);
+            height: rm(3.75);
+            top: 50%;
+            left: 50%;
+            translate: -50% -50%;
+        }
+
+}
+
+details[open] .c-icon-faq::before{
+    transform: scaleY(0);
+    transition: transform .3s ease;
+}

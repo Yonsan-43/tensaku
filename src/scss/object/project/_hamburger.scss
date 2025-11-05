@@ -1,0 +1,56 @@
+@use "../../global/index" as *;
+
+.p-hamburger {
+    width: rm(300);
+    height: rm(529);
+    position: fixed;
+    right: rm(-300);
+    top: rm(74);
+    background: linear-gradient($color-secondary,$color-main);
+    padding: rm(23) rm(13) rm(53) rm(13);
+    transition: all .3s ease-in-out;
+}
+
+.is-hamburger.p-hamburger{
+    right: 0;
+}
+
+.p-hamburger__text{
+    color: $white;
+    line-height: 1.5;
+    font-size: rm(16);
+}
+
+.p-hamburger__list {
+    margin-block-start: rm(36);
+    border-top: px(1) solid $white;
+}
+
+.p-hamburger__item {
+    color: $white;
+    font-size: rm(14);
+    border-bottom: rm(1) solid $white;
+    padding-inline-start: rm(10);
+    padding-block: rm(18.5);
+    line-height: 1;
+    a{
+        // width: 100%;
+        // height: 100%;
+        transition: opacity .3s ease;
+        @media (any-hover: hover) {
+            &:hover{
+                opacity: .5;
+            }
+        }
+    }
+}
+
+.p-hamburger__button {
+    display: flex;
+    margin-block-start: rm(39);
+    gap: rm(10);
+    &--contact{
+        width: rm(132);
+    }
+}
+

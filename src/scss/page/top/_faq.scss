@@ -1,0 +1,138 @@
+@use "../../global/index" as *;
+
+.top-faq {
+    padding-block-start: rm(30);
+    padding-block-end: rm(85);
+    background: $color-bg-sub;
+}
+
+
+.top-faq__button {
+    width: fit-content;
+    margin-inline: auto;
+    margin-block-start: rm(69);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: rm(24);
+    margin-block-end: rm(49);
+    @include mq(sp-sm) {
+        gap: rm(15);
+    }
+}
+
+.top-faq__list__wrap{
+    opacity: 0;
+    visibility: hidden;
+    height: 0;
+    transition: opacity .3s ease;
+    &.js-show{
+        opacity: 1;
+        visibility: visible;
+        height: fit-content;
+    }
+}
+
+.top-faq__list {
+    margin-inline: rm(20);
+    display: grid;
+    gap: rm(20);
+    @include mq(sp-sm) {
+      margin-inline: rm(5);
+    }
+}
+
+.top-faq__function {
+    display: none;
+}
+.top-faq__item {
+    border: solid rm(1) $color-accent;
+}
+
+.top-faq__item__question {
+    width: 100%;
+    padding-block-start: rm(11);
+    padding-block-end: rm(12);
+    padding-inline-start: rm(49);
+    padding-inline-end: rm(27);
+    gap: rm(32);
+    display: grid;
+    grid-template-columns: auto 1fr rm(30);
+    background: $color-accent;
+    color: $white;
+    font-weight: bold;
+    font-size: rm(16);
+    align-items: center;
+    @include mq(sp) {
+        padding-inline: rm(15);
+        font-size: rm(14);
+    }
+    @include mq(sp-sm) {
+        gap: rm(10);
+        padding-inline: rm(10);
+        padding-bottom: rm(10);
+    }
+    &::before{
+        content: "Q";
+        flex-shrink: 0;
+        font-family: $ff-en;
+        width: rm(37);
+        height: rm(36);
+        background: $white;
+        border-radius: 50%;
+        color: $color-accent;
+        display: grid;
+        place-items: center;
+        font-size: rm(20);
+        font-weight: bold;
+        @include mq(sp) {
+            width: rm(31);
+            height: rm(30);
+        }
+    }
+}
+
+.top-faq__item__answer {
+    background: $white;
+    display: grid;
+    padding-block-start: rm(19.5);
+    padding-block-end: rm(19);
+    padding-inline: rm(49);
+    display: flex;
+    align-items: center;
+    gap: rm(33);
+    overflow:hidden;
+    @include mq(sp) {
+      padding-inline: rm(15);
+      padding-block: rm(15);
+      font-size: rm(14);
+    }
+    @include mq(sp-sm) {
+        gap: rm(10);
+        padding-inline: rm(10);
+        padding-block: rm(10);
+
+    }
+    &::before{
+        content: "A";
+        font-family: $ff-en;
+        flex-shrink: 0;
+        width: rm(37);
+        height: rm(36);
+        background: $color-accent;
+        border-radius: 50%;
+        color: $white;
+        display: grid;
+        place-items: center;
+        font-size: rm(20);
+        font-weight: bold;
+        line-height: 1;
+        @include mq(sp) {
+            width: rm(31);
+            height: rm(30);
+        }
+    }
+}
+
+
+

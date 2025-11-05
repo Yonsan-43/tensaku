@@ -1,0 +1,135 @@
+@use "../global/index" as *;
+
+
+.l-header {
+    height: rm(98);
+    width: 100%;
+    // background: $white;
+    position: fixed;
+    z-index: $z-header;
+    transition: all .3s ease-in-out;
+    @include mq(sp) {
+        height: rm(74);
+    }
+}
+
+// スクロールすると変化
+.l-header.js-has-bg{
+    // header {
+    //     background: $white;
+    //     box-shadow: 0 rm(3) rm(6) 0 rgba(0, 0, 0, 0.25);
+    // }
+    .l-header__logo {
+        color: $color-main;
+    }
+    .l-header__list li a{
+        color: $color-text-main;
+    }
+    .c-icon__line {
+        background: $color-main;
+    }
+    .c-icon__text {
+        color: $color-main;
+    }
+}
+
+.l-header--sub-page{
+    background: $white;
+    box-shadow: 0 rm(3) rm(6) 0 rgba(0, 0, 0, 0.25);
+    height: rm(98);
+    width: 100%;
+    // background: $white;
+    position: fixed;
+    z-index: $z-header;
+    transition: all .3s ease-in-out;
+    @include mq(sp) {
+        height: rm(74);
+    }
+
+    .l-header__logo {
+        color: $color-main;
+    }
+    .l-header__list li a{
+        color: $color-text-main;
+    }
+    .c-icon__line {
+        background: $color-main;
+    }
+    .c-icon__text {
+        color: $color-main;
+    }
+}
+
+.l-header.l-header--sub-page{
+
+    .l-header__logo {
+        color: $color-main;
+    }
+    .l-header__list li a{
+        color: $color-text-main;
+    }
+    .c-icon__line {
+        background: $color-main;
+    }
+    .c-icon__text {
+        color: $color-main;
+    }
+}
+
+.l-header__inner{
+    width: calc(rm(1280) - rm(57 * 2));
+    margin-inline: auto;
+    display: flex;
+    height: 100%;
+    align-items: center;
+    @include mq(sp) {
+      width: 100%;
+      padding-inline: rm(15);
+    }
+}
+
+.l-header__logo {
+    font-family: $ff-logo;
+    font-weight: bold;
+    color: $white;
+    font-size: rm(32);
+    @include mq(sp) {
+      font-size: rm(24);
+    }
+
+}
+
+.l-header__list {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    justify-content: left;
+    gap: rm(36);
+    margin-inline-start: rm(46);
+    @include mq(sp) {
+      display: none;
+    }
+}
+
+.l-header__item {
+    font-weight: bold;
+    color: $white;
+    font-size: rm(16);
+    transition: opacity .3s ease;
+    @media (any-hover: hover) {
+        &:hover{
+            opacity: .5;
+        }
+    }
+}
+
+.l-header__button{
+    display: flex;
+    gap: rm(10);
+    margin-inline-start: auto;
+    @include mq(sp) {
+      display: none;
+    }
+}
+
+

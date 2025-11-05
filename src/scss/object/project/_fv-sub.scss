@@ -1,0 +1,53 @@
+@use "../../global/index" as *;
+
+.p-fv-sub {
+    min-height: calc(rm(290) + rm(98));
+    background: linear-gradient(90deg,$color-secondary,$color-main);
+    padding-block-start: calc(rm(68) + rm(98));
+    @include mq(sp) {
+      padding-block-start: rm(130);
+    }
+}
+.p-fv-sub--title-only{
+    display: grid;
+    place-items: center;
+    padding-block-start: rm(98);
+    .p-fv-sub__title{
+        margin-block-end: 0;
+    }
+}
+.p-fv-sub__title {
+    padding-inline: rm(15);
+    padding-block: rm(10);
+    background: $white;
+    width: fit-content;
+    margin-inline: auto;
+    color: $color-main;
+    @include font(40, bold, 40, null);
+    margin-block-end: rm(27);
+    @include mq(sp) {
+        font-size: rm(32);
+    }
+}
+
+.p-fv-sub__text {
+    color: $white;
+    text-align: center;
+    @include font(16,null,calc(48/2),null);
+    @include mq(sp) {
+        br{
+            display: none;
+        }
+    }
+    span{
+        display: inline;
+        @include mq(sp) {
+          width: 80%;
+          margin-inline: auto;
+        }
+        @include mq(sp) {
+            display: block;
+        }
+    }
+}
+

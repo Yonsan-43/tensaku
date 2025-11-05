@@ -1,0 +1,245 @@
+@use "../global/index" as *;
+
+.whitepaper {
+    background: $color-bg-main;
+}
+
+.whitepaper__contents{
+    padding-inline: rm(20);
+    padding-block-end: rm(127);
+    padding-block-start: rm(78);
+    display: flex;
+    gap: rm(32);
+    @include mq(sp) {
+      flex-direction: column;
+      align-items: center;
+      row-gap:rm(60);
+    }
+}
+
+.whitepaper__body {
+    margin-block-start: rm(calc(97 - 78));
+    width: rm(512);
+    @include mq(sp) {
+      width: min(rm(520),100%);
+    }
+}
+
+.whitepaper__body__text-1 {
+    color: $color-text-main;
+    @include font(16,null,calc(96/4),null);
+    margin-block-end:rm(31);
+}
+
+.whitepaper__body__img-1,.whitepaper__body__img-2 {
+    width: rm(268);
+    height: auto;
+    aspect-ratio: 268/151;
+    box-shadow: 0 rm(4) rm(4) 0 rgba(0, 0, 0, .25);
+    img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+.whitepaper__body__img__wrap{
+    margin-block-start: rm(78);
+    width: 100%;
+    height: auto;
+}
+
+.whitepaper__body__img-1{
+    display: block;
+    margin-inline-start: auto;
+    margin-block-start: rm(calc(198 - 151));
+    @include mq(sp-sm) {
+      margin-block-start: rm(90);
+    }
+}
+
+.whitepaper__body__img-2 {
+    display: block;
+    margin-inline-end: auto;
+    margin-block-start: rm(-198);
+    margin-block-end: auto;
+    @include mq(sp-sm) {
+        margin-block-start: rm(-50);
+
+    }
+}
+
+.whitepaper__body__text-2 {
+    color: $color-text-main;
+    @include font(16,null,24,null);
+    max-width:rm(414);
+    margin-block-start: rm(113);
+    @include mq(sp) {
+
+        justify-self: center;
+    }
+}
+
+.whitepaper__body__tel {
+    margin-block-start: rm(35);
+    display: flex;
+    flex-direction: column;
+    gap: rm(15);
+    span{
+        display: block;
+    }
+    @include mq(sp) {
+      text-align: center;
+    }
+}
+
+.whitepaper__body__tel-text {
+    color: $color-text-main;
+    @include font(14,null,14,null);
+
+}
+
+.whitepaper__body__tel-num {
+    color: $color-main;
+    @include font(40,bold,40,null);
+
+}
+
+.whitepaper-form {
+    width: rm(440);
+    height: rm(523);
+    background: $white;
+    border-radius: rm(5);
+    box-shadow: 0 rm(3) rm(6) 0 rgba($color: $color-text-main, $alpha: .25);
+    padding-inline: rm(30);
+    padding-block-start: rm(30);
+    padding-block-end: rm(50);
+    @include mq(sp-sm) {
+        width: min(rm(440),100%);
+        padding-inline: rm(20);
+        padding-block: rm(20);
+    }
+}
+
+.whitepaper-form--before{
+    display: flex;
+    flex-direction: column;
+    gap: rm(10);
+    @include mq(sp-sm) {
+        width: min(rm(400),100%);
+
+    }
+}
+
+.whitepaper-form__title {
+    color: $color-text-main;
+    @include font(14,null,21,null);
+    margin-block-end:rm(27);
+}
+
+.whitepaper-form__item {
+    input{
+        width: 100%;
+    }
+    height: rm(44);
+    border: solid rm(1) $color-form;
+    border-radius: rm(5);
+
+    &::placeholder{
+        color: $color-text-gray;
+        @include font(16, null, 24,null);
+        width: 100%;
+    }
+}
+
+
+.text {
+    padding-inline: rm(12);
+    padding-block: rm(9);
+}
+
+.whitepaper-form__select-wrap {
+    // width: rm(380);
+    height: 100%;
+    position: relative;
+    &::after{
+        content: "";
+        display: inline-block;
+        background-image: url(../../img/form-arrow.svg);
+        background-size:contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        width: rm(14);
+        height: auto;
+        aspect-ratio: 1;
+        position: absolute;
+        top: 50%;
+        right: rm(9);
+        translate: 0 -50%;
+        pointer-events: none;
+        @media (any-hover: hover) {
+            &:hover{
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+.whitepaper-form__select {
+    width: 100%;
+    height: 100%;
+    padding-inline: rm(12);
+    padding-block: rm(9);
+    color: $color-text-gray;
+    &:valid{
+        color: $color-text-main;
+    }
+}
+
+.whitepaper-form__policy {
+    display: block;
+    margin-block: rm(24);
+    @include font(12, null, 12, null);
+    width: fit-content;
+
+    span{
+        color: $color-text-main;
+    }
+    a{
+        color: $color-policy;
+        border-bottom: solid rm(1) $color-policy;
+    }
+}
+
+
+.whitepaper-form--before.js-none,
+.whitepaper-form--downloaded.js-none {
+    display: none;
+}
+
+.whitepaper-form__title--downloaded {
+    color: $color-text-main;
+    @include font(24,bold,36,null);
+    margin-block-end: rm(26);
+    @include mq(sp-sm) {
+        font-size: rm(18);
+
+    }
+}
+
+.whitepaper-form__text--downloaded {
+    color: $color-text-main;
+    @include font(14, null,14,null);
+    margin-block-end: rm(19);
+}
+
+.whitepaper-form__download-link {
+    width: 100%;
+    a{
+        color: $color-policy;
+        width: fit-content;
+        @include font(14,null,14,null);
+        border-bottom:solid rm(1) $color-policy;
+    }
+}
+

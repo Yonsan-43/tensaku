@@ -1,0 +1,107 @@
+@use "../../global/index" as *;
+
+.top-questionnaire {
+    background: $color-bg-main;
+    padding-block-start: rm(31);
+    padding-block-end: rm(84);
+    position: relative;
+    @include mq(sp) {
+      margin-block-start: rm(220);
+    }
+    &::before{
+        content: "";
+        width: rm(165);
+        height: rm(62);
+        position: absolute;
+        clip-path: polygon(0 0, 50% 100%, 100% 0);
+        background: $color-bg-main;
+        bottom: rm(-59);
+        left: 50%;
+        translate: -50%;
+        @include mq(sp-sm) {
+          bottom: rm(-60);
+        }
+    }
+}
+
+.top-questionnaire__wrap {
+    margin-block-start: rm(89);
+    margin-inline: rm(32);
+    display: flex;
+    gap: rm(45);
+    @include mq(sp) {
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-inline: 0;
+    }
+}
+
+.top-questionnaire__card {
+    width: rm(290);
+    height: rm(480);
+    display: flex;
+    flex-direction: column;
+    @include mq(sp) {
+      width: min(rm(290), 80vw);
+    }
+    @include mq(sp-sm) {
+
+    }
+}
+
+.op-questionnaire__card__title {
+    padding-inline: rm(9);
+    padding-block: rm(7);
+    background: $color-text-main;
+    color: $white;
+    width: fit-content;
+    align-self: center;
+    line-height: 1;
+    font-weight: bold;
+    font-size: rm(16);
+    margin-block-end: rm(7);
+    text-align: center;
+    @include mq(sp) {
+      width: 80%;
+    }
+    span{
+        display: inline-block;
+        width: fit-content;
+    }
+}
+
+.top-questionnaire__card__img {
+    width: rm(290);
+    height: rm(290);
+    aspect-ratio: 1;
+    @include mq(sp) {
+      height: auto;
+      align-self: center;
+    }
+    img{
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+    }
+
+}
+
+.top-questionnaire__card__subtitle {
+    font-weight: bold;
+    font-size: rm(20);
+    align-self: center;
+    width: fit-content;
+    line-height: 1.5;
+    margin-block-start: rm(19);
+    span{
+        display: block;
+    }
+}
+
+.top-questionnaire__card__text {
+    margin-block-start: rm(11);
+    line-height: 1.5;
+    font-size: rm(14);
+}
+

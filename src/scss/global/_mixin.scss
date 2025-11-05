@@ -1,0 +1,44 @@
+//_mixin.scss
+@use "./variables" as *;
+
+// =================================
+//  メディアクエリ
+// =================================
+
+$breakpoints: (
+  "sp": "screen and (max-width: #{$breakpoint - 1px})",
+  "sp-sm": "screen and (max-width: #{500 - 1px})",
+  "sp-sm-min": "screen and (min-width: #{500 - 1px})",
+	"sp-lg": "(min-width: #{$sp-inner-sum * 1px})",
+  "pc": "(min-width: #{$breakpoint * 1px})",
+  "lg": "(min-width: #{$pc-inner-sum * 1px})"
+) !default;
+
+@mixin mq($breakpoint: sp) {
+  @media #{map-get($breakpoints, $breakpoint)} {
+    @content;
+  }
+}
+
+// =================================
+//  フォント情報の一括入力
+// =================================
+
+//Figma の時は、こちら ===============
+@mixin font($size: null, $weight: null, $height: null, $spacing: null) {
+  @if $size {
+		font-size: max(calc($size / 16 * 1rem), calc($size * 0.8px));
+		@include mq(sp) {
+			font-size: calc($size / 16 * 1rem);
+		}
+  }
+  @if $weight {
+    font-weight: $weight;
+  }
+  @if $height {
+    line-height: calc($height / $size);
+  }
+  @if $spacing {
+    letter-spacing: calc($spacing / $size * 1em);
+  }
+}

@@ -1,0 +1,223 @@
+@use "../../global/index" as *;
+
+
+.c-button {
+    width: rm(174);
+    height: rm(50);
+    border-radius: rm(25);
+    font-weight: bold;
+    font-size: rm(16);
+    box-shadow: 0 rm(6) rm(9) rgba($color: $black, $alpha: .25);
+    display: grid;
+    place-items: center;
+    transition: opacity .3s ease;
+    @media (any-hover: hover) {
+        &:hover{
+            opacity: .5;
+        }
+    }
+    a{
+        display: grid;
+        place-items: center;
+        width: 100%;
+        height: 100%;
+        border-radius: rm(25);
+    }
+    @include mq(sp) {
+      width: min(rm(283),40vw);
+    }
+    @include mq(sp-sm) {
+      width: max(rm(283),40vw);
+    }
+    &--main{
+        background: linear-gradient(-90deg, $color-main, $color-secondary);
+        color: $white;
+    }
+    &--accent{
+        background: linear-gradient(90deg, $color-accent, #E9A012);;
+        color: $white;
+    }
+    &--white{
+        background: $white;
+        color: $color-text-sub;
+        @include mq(sp) {
+            background: linear-gradient(-90deg, $color-main, $color-secondary);
+            color: $white;
+        }
+    }
+
+}
+
+.c-button__hamburger{
+    @include mq(sp) {
+        width: rm(132);
+        height: rm(46);
+        border-radius: rm(25);
+        font-weight: bold;
+        font-size: rm(14);
+        box-shadow: 0 rm(6) rm(9) rgba($color: $black, $alpha: .25);
+        display: grid;
+        place-items: center;
+        transition: opacity .3s ease;
+        @media (any-hover: hover) {
+        &:hover{
+            opacity: .5;
+        }
+        a{
+            width: 100%;
+            height: 100%;
+            display: grid;
+            place-items: center;
+            transition: opacity .3 ease;
+            @media (any-hover: hover) {
+            &:hover{
+                opacity: .5;
+            }
+        }
+        }
+    }
+        &--white{
+            background: $white;
+            color: $color-text-sub;
+        }
+        &--accent{
+            background: linear-gradient(90deg, $color-accent, #E9A012);;
+            color: $white;
+        }
+    }
+}
+
+.c-button__price {
+    width: rm(156);
+    height: rm(46);
+    background: $color-accent;
+    color: $white;
+    border-radius: rm(5);
+    font-weight: bold;
+    font-size: rm(16);
+    display: grid;
+    place-items: center;
+    transition: all .3 ease-in-out;
+    @media (any-hover: hover) {
+        &:hover{
+            opacity: .5;
+        }
+    }
+}
+
+.c-button-faq{
+    width: min(rm(290),40vw);
+    height: rm(38);
+    border-radius: rm(25);
+    font-weight: bold;
+    display: grid;
+    place-items: center;
+    font-size: rm(20);
+    border: solid rm(2) $color-text-gray;
+    background: $color-bg-gray;
+    color: $color-text-gray;
+    a{
+        display: block;
+        width: 100%;
+        height: 100%;
+    }
+    @include mq(sp-sm) {
+        font-size: rm(14);
+    }
+    &[aria-selected="true"]{
+        border: solid rm(2) $color-accent;
+        background: $color-accent;
+        color: $white;
+        pointer-events: none;
+    }
+    &[aria-selected="false"]{
+        @media (any-hover: hover) {
+            &:hover{
+                cursor: pointer;
+                opacity: .7;
+            }
+        }
+    }
+}
+
+.c-button-form{
+    display: block;
+    font-weight: bold;
+    color: $white;
+    font-size: rm(16);
+    &--sm{
+        width: min(rm(380),100%);
+        height: rm(44);
+        background: $color-main;
+        border-radius: rm(5);
+        display: grid;
+        place-items: center;
+    }
+    &--lg{
+        width: min(rm(500),90%);
+        height: rm(65);
+        background: $color-accent;
+        border-radius: rm(20);
+        justify-self: center;
+        a{
+            display: grid;
+            place-items: center;
+        }
+        @include mq(sp-sm) {
+            height: rm(55);
+        }
+    }
+    &.--mbs53{
+        margin-block-start: rm(53);
+    }
+}
+
+.c-button-to-top {
+    width: rm(88);
+    height: auto;
+    aspect-ratio: 1;
+    position: fixed;
+    bottom: rm(50);
+    right: rm(50);
+    transition: all .3s ease;
+    cursor: pointer;
+    z-index: $z-popup;
+    @media (any-hover: hover) {
+        &:hover{
+            opacity: .7;
+            scale: 1.2;
+        }
+    }
+    @include mq(sp) {
+        width: rm(50);
+    }
+    @include mq(sp-sm) {
+        bottom: rm(50);
+        right: rm(20);
+    }
+    img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+// フォームバリデーション
+.contact__submit{
+    width: 100%;
+    height: 100%;
+    // border-radius: rm(20);
+}
+form:has(:invalid) .contact__submit{
+    border-radius: rm(20);
+    // opacity: 0.5;
+    background: grayscale($color: $color-form);
+    pointer-events: none;
+    transition: background .3s ease;
+  }
+
+form:has(:invalid) .c-button-form--sm{
+    background: grayscale($color: $color-form);
+    pointer-events: none;
+    transition: background .3s ease;
+  }

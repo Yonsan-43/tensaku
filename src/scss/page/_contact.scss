@@ -1,0 +1,300 @@
+@use "../global/index" as *;
+
+// ===================================
+// 全体設定
+// ===================================
+input[type=text],
+input[type=email],
+input[type=tel]
+ {
+    border-radius: rm(5);
+    width: 100%;
+    background: $white;
+    border: solid rm(1) $color-form;
+    padding: rm(12) rm(13);
+  &::placeholder {
+    color: $color-text-gray;
+    @include font(16, null, 24, null);
+  }
+}
+
+// ===================================
+// チェックボックス
+// ===================================
+//デフォルトのものを消す
+input[type=checkbox] {
+  width: 1px;
+  height: 1px;
+  position: absolute;
+  clip: rect(0, 0, 0, 0);
+}
+//チェックボックスカスタマイズ ====================
+//チェックされた時の挙動
+input[type=checkbox]:checked + span {
+  &::after {
+    opacity: 1;
+  }
+}
+//カスタマイズ
+.contact__data-checkbox {
+  //全体のcss
+    display: flex;
+    flex-direction: column;
+    gap: rm(7);
+  //各項目のcss
+  span {
+    width: fit-content;
+    display: inline-block;
+    display: flex;
+    position: relative;
+    margin-inline-start: rm(30);
+    @include font(16,null,16,null);
+    //frame
+    &::before {
+      content: '';
+      position: absolute;
+       width: rm(18);
+       height: rm(18);
+       background: $white;
+        border: solid rm(1) $color-form;
+        border-radius: rm(5);
+        top: 0;
+        left: rm(-30);
+
+    }
+    //active
+    &::after {
+      content: '';
+      position: absolute;
+        top: rm(2.5);
+        left: rm(-24);
+        width: rm(6);
+        height: rm(12);
+        border-bottom: rm(2) solid $color-form;
+        border-right: rm(2) solid $color-form;
+        rotate: 45deg;
+      opacity: 0;
+    }
+  }
+}
+.contact__checkbox-wrapper:focus-within{
+        border-color: blue; /* 青い枠線 */
+        box-shadow: 0 0 0 px(2) blue;
+        width: fit-content;
+        border-radius: rm(2);
+}
+// ===================================
+// ラジオボタン
+// ===================================
+//デフォルトのものを消す
+input[type=radio] {
+  width: 1px;
+  height: 1px;
+  position: absolute;
+  clip: rect(0, 0, 0, 0);
+  outline: none;
+}
+//ラジオボタンカスタマイズ ====================
+//選択された時の挙動
+input[type=radio]:checked + span {
+    &::after{
+        opacity: 1;
+    }
+}
+//カスタマイズ
+.contact__data-radio {
+  //全体のcss
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  //各項目のcss
+  span {
+    display: inline-block;
+    color: $color-text-main;
+    // line-height: 1;
+    @include font(16,null,16,null);
+    position: relative;
+    margin-inline-start: rm(30);
+    //frame
+    &::before {
+      content: '';
+      position: absolute;
+        width: rm(18);
+        height: rm(18);
+        border: rm(1) solid $color-form;
+        border-radius: 50%;
+        background: $white;
+        top: 0;
+        left: rm(-30);
+    }
+    //active
+    &::after {
+      content: '';
+      position: absolute;
+        width: rm(12);
+        height: rm(12);
+        background: $color-form;
+        border-radius: 50%;
+        top: rm(9);
+        left: rm(-27);
+        translate: 0 -50%;
+      opacity: 0;
+    }
+  }
+}
+.contact__radio-wrapper:focus-within{
+  border-color: blue; /* 青い枠線 */
+  box-shadow: 0 0 0 px(2) blue;
+  width: fit-content;
+  border-radius: rm(2);
+}
+
+// ===================================
+// 送信ボタン
+// ===================================
+//ブラウザによって異なるデフォルト設定を初期化
+input[type="submit"],
+input[type="button"] {
+  border-radius: 0px;
+  -webkit-box-sizing: content-box;
+  -webkit-appearance: button;
+  appearance: button;
+  border: none;
+  box-sizing: border-box;
+  cursor: pointer;
+  background: transparent;
+}
+input[type="submit"]::-webkit-search-decoration,
+input[type="button"]::-webkit-search-decoration {
+  display: none;
+}
+//ボタンを中央寄せに(ケースによる)
+.row.jc-center {
+  justify-content: center;
+}
+
+// 送信ボタンのカスタマイズ====================
+.contact__submit {
+  text-align: center;
+  input[type=submit] {
+    display: inline-block;
+
+  }
+}
+
+.contact{
+    position: relative;
+    background: $color-bg-main;
+    // margin-block-start: rm(-50);
+    min-height: rm(1389);
+}
+
+.contact__form {
+    position: absolute;
+    background: $white;
+    border-radius: rm(20);
+    padding-block: rm(62);
+    padding-inline: rm(50);
+    box-shadow: 0 rm(3) rm(6) 0 rgba($color: $color-text-main, $alpha: .25);
+    margin-block-start: rm(-50);
+    width: min(rm(800), 95%);
+    height: auto;
+    // aspect-ratio: 800/1375;
+    top: 0;
+    left: 50%;
+    translate: -50%;
+    display: grid;
+    gap: rm(9);
+    @include mq(sp-sm) {
+        padding-inline: rm(10);
+        padding-block: rm(50);
+        margin-block-start: rm(-15);
+    }
+}
+
+
+.contact__row{
+    background: $color-bg-main;
+    padding-inline: rm(12);
+    padding-block: rm(10);
+    display: grid;
+    row-gap: rm(12);
+    @include mq(sp) {
+      width: 100%;
+      padding-inline: rm(10);
+    }
+    &.--rg14{
+        row-gap: rm(13);
+        margin-block-start: rm(1);
+    }
+    &.--mbs-4{
+        row-gap: rm(12);
+        margin-block-start: rm(-4);
+    }
+    &.--rg13{
+        row-gap: rm(14);
+        margin-block-start: rm(-1);
+    }
+    &:first-of-type{
+        width: 100%;
+        .contact__data{
+            max-width: rm(359);
+        }
+    }
+}
+
+.contact__head{
+    color: $color-text-main;
+    @include font(16,bold,16,null);
+    span.--must{
+        position: relative;
+        display: inline-block;
+        margin-inline-start: calc(rm(38) + rm(3));
+        &::before{
+            content: "必須";
+            position: absolute;
+            padding: rm(3) rm(7);
+            background: $color-accent;
+            color: $white;
+            @include font(12,bold,12,null);
+            white-space: nowrap;
+            left: calc(rm(-38) + rm(-3));
+        }
+    }
+}
+
+
+.contact__acceptance {
+
+    span{
+        display: block;
+        @include font(16,bold,16,null);
+        margin-block-end:rm(2);
+    }
+    &__policy{
+        display: block;
+        @include font(12,null,12,null);
+        margin-inline-start:rm(30);
+    }
+    a{
+        color: $color-policy;
+        border-bottom: rm(1) solid $color-policy;
+    }
+}
+
+// サンクスページ
+
+.contact--thanks{
+    min-height: rm(221);
+    @include mq(sp-sm) {
+    }
+}
+.contact__form--thanks{
+    @include mq(sp-sm) {
+        padding-inline: rm(20);
+    }
+}
+.contact__form--thanks-text span{
+    color: $color-text-main;
+    @include font(16,null,24,null);
+}
