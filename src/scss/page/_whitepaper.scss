@@ -114,22 +114,16 @@
     padding-inline: rm(30);
     padding-block-start: rm(30);
     padding-block-end: rm(50);
-    @include mq(sp-sm) {
-        width: min(rm(440),100%);
-        padding-inline: rm(20);
-        padding-block: rm(20);
-    }
-}
-
-.whitepaper-form--before{
     display: flex;
     flex-direction: column;
     gap: rm(10);
     @include mq(sp-sm) {
         width: min(rm(400),100%);
-
+        padding-inline: rm(20);
+        padding-block: rm(20);
     }
 }
+
 
 .whitepaper-form__title {
     color: $color-text-main;
@@ -138,13 +132,7 @@
 }
 
 .whitepaper-form__item {
-    input{
-        width: 100%;
-    }
     height: rm(44);
-    border: solid rm(1) $color-form;
-    border-radius: rm(5);
-
     &::placeholder{
         color: $color-text-gray;
         @include font(16, null, 24,null);
@@ -191,6 +179,8 @@
     padding-inline: rm(12);
     padding-block: rm(9);
     color: $color-text-gray;
+    border: rm(1) solid $color-form;
+    border-radius: rm(5);
     &:valid{
         color: $color-text-main;
     }
@@ -201,13 +191,12 @@
     margin-block: rm(24);
     @include font(12, null, 12, null);
     width: fit-content;
-
     span{
         color: $color-text-main;
     }
     a{
         color: $color-policy;
-        border-bottom: solid rm(1) $color-policy;
+        border-bottom: solid rm(.5) $color-policy;
     }
 }
 

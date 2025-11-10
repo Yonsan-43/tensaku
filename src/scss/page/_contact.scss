@@ -11,7 +11,6 @@ input[type=tel]
     width: 100%;
     background: $white;
     border: solid rm(1) $color-form;
-    padding: rm(12) rm(13);
   &::placeholder {
     color: $color-text-gray;
     @include font(16, null, 24, null);
@@ -70,8 +69,8 @@ input[type=checkbox]:checked + span {
         left: rm(-24);
         width: rm(6);
         height: rm(12);
-        border-bottom: rm(2) solid $color-form;
-        border-right: rm(2) solid $color-form;
+        border-bottom: rm(2) solid $color-text-main;
+        border-right: rm(2) solid $color-text-main;
         rotate: 45deg;
       opacity: 0;
     }
@@ -131,12 +130,12 @@ input[type=radio]:checked + span {
     &::after {
       content: '';
       position: absolute;
-        width: rm(12);
-        height: rm(12);
-        background: $color-form;
+        width: rm(10);
+        height: rm(10);
+        background: $color-text-main;
         border-radius: 50%;
         top: rm(9);
-        left: rm(-27);
+        left: rm(-26);
         translate: 0 -50%;
       opacity: 0;
     }
@@ -219,6 +218,9 @@ input[type="button"]::-webkit-search-decoration {
     padding-block: rm(10);
     display: grid;
     row-gap: rm(12);
+    input{
+      padding: rm(12) rm(13);
+    }
     @include mq(sp) {
       width: 100%;
       padding-inline: rm(10);
