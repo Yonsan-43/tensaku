@@ -19,10 +19,10 @@ jobs:
       - name: 🚀 FTP Deploy
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
-          server: ${{ secrets.FTP_SERVER }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          # 【元】リポジトリ内の dist フォルダの中身を送る
-          local-dir: ./dist/
-          # 【先】エックスサーバーの公開ディレクトリを指定（末尾は / ）
-          server-dir: /xs900721.xsrv.jp/public_html/tensaku/
+            server: ${{ secrets.FTP_SERVER }}
+            username: ${{ secrets.FTP_USERNAME }}
+            password: ${{ secrets.FTP_PASSWORD }}
+            # 【元】リポジトリ内の dist フォルダの中身を送る
+            local-dir: ./dist/
+            # 【先】エックスサーバーの公開ディレクトリを指定（末尾は / ）
+            server-dir: /xs900721.xsrv.jp/public_html/tensaku/
