@@ -61,6 +61,15 @@
     .l-header__list li a{
         color: $color-text-main;
     }
+    .l-header__list  a{
+        @media (any-hover: hover) {
+            &:hover{
+                &::after{
+                    background: $color-text-main;
+                }
+            }
+        }
+    }
     .c-icon__line {
         background: $color-main;
     }
@@ -77,6 +86,7 @@
     .l-header__list li a{
         color: $color-text-main;
     }
+
     .c-icon__line {
         background: $color-main;
     }
@@ -141,13 +151,15 @@
         background: #fff;
         opacity: 0;
         translate: 0 -5px;
-        transition: opacity .3s ease, translate .3s ease;
+        scale: 0;
+        transition: scale .5s ease, opacity .3s ease, translate .3s ease;
     }
     @media (any-hover: hover) {
         &:hover{
             &::after{
                 translate: 0 0;
                 opacity: 1;
+                scale: 1;
             }
         }
     }
