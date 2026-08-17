@@ -25,14 +25,8 @@
     .l-header__list li a{
         color: $color-text-main;
     }
-    .l-header__list  a{
-        @media (any-hover: hover) {
-            &:hover{
-                &::after{
-                    background: $color-text-main;
-                }
-            }
-        }
+    .l-header__item a::after {
+        background: $color-text-main;
     }
     .c-icon__line {
         background: $color-main;
@@ -50,7 +44,7 @@
     // background: $white;
     position: fixed;
     z-index: $z-header;
-    transition: all .3s ease-in-out;
+    transition-duration: all .3s ease;
     @include mq(sp) {
         height: rm(74);
     }
@@ -61,14 +55,8 @@
     .l-header__list li a{
         color: $color-text-main;
     }
-    .l-header__list  a{
-        @media (any-hover: hover) {
-            &:hover{
-                &::after{
-                    background: $color-text-main;
-                }
-            }
-        }
+    .l-header__item a::after {
+        background: $color-text-main;
     }
     .c-icon__line {
         background: $color-main;
@@ -152,7 +140,12 @@
         opacity: 0;
         translate: 0 -5px;
         scale: 0;
-        transition: scale .5s ease, opacity .3s ease, translate .3s ease;
+        transform-origin:  center;
+        transition:
+            scale .5s ease,
+            opacity .3s ease,
+            translate .3s ease;
+        transition-delay: .3s;
     }
     @media (any-hover: hover) {
         &:hover{
@@ -160,6 +153,11 @@
                 translate: 0 0;
                 opacity: 1;
                 scale: 1;
+                transition:
+                    scale .5s ease,
+                    opacity .3s ease,
+                    translate .3s ease;
+                transition-delay: 0s;
             }
         }
     }
