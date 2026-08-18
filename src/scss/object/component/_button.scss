@@ -11,9 +11,11 @@
     display: grid;
     place-items: center;
     transition: opacity .3s ease;
+    transition-delay: .3s;
     @media (any-hover: hover) {
         &:hover{
             opacity: .5;
+            transition: opacity .3s ease;
         }
     }
     a{
@@ -62,6 +64,7 @@
         @media (any-hover: hover) {
         &:hover{
             opacity: .5;
+            transition: opacity .3s ease;
         }
         a{
             width: 100%;
@@ -97,10 +100,12 @@
     font-size: rm(16);
     display: grid;
     place-items: center;
-    transition: all .3 ease-in-out;
+    transition: opacity .3s ease;
+    transition-delay: .3s;
     @media (any-hover: hover) {
         &:hover{
             opacity: .5;
+            transition: opacity .3s ease;
         }
     }
 }
