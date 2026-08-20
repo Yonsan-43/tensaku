@@ -11,10 +11,10 @@
     display: grid;
     place-items: center;
     transition: opacity .3s ease;
+    transition-delay: .3s;
     @media (any-hover: hover) {
         &:hover{
-            transition-delay: .3s;
-            opacity: .9;
+            opacity: .7;
             transition: opacity .3s ease;
         }
     }
